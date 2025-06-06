@@ -12,7 +12,7 @@ from load import carregar_no_banco
 from config import get_db_engine
 
 
-time.sleep(10)  # Espera inicial opcional (útil para ambientes com containers que sobem devagar)
+time.sleep(10)
 
 
 def main():
