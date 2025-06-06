@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Executa o script main.py via python
+# Executa o script main.py
 CMD ["python", "main.py"]
