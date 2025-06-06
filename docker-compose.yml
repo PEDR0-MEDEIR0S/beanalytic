@@ -15,7 +15,7 @@ services:
       # Script de inicialização para criação de schemas/tabelas
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "5432:5432"  # Mapeia a porta padrão do Postgres
+      - "5432:5432"
 
   etl:
     build: .
@@ -33,4 +33,3 @@ services:
 
 volumes:
   pgdata:
-    # Volume nomeado para persistência dos dados do Postgres
