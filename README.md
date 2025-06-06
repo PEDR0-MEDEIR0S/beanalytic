@@ -74,35 +74,34 @@ O arquivo `postgres/views.sql` contém views que consolidam dados da fato com as
 
 ### Ambiente Linux ou Mac
 
+```bash
+chmod +x start.sh
+./start.sh
+```
+ou
 use o Docker Compose:
 
 ```bash
 docker compose up --build
 ```
-ou
-```bash
-chmod +x start.sh
-./start.sh
-```
+
 
 ### Ambiente Windows
 
 Execute diretamente com Python:
 
-use o Docker Compose:
-
-```bash
-docker compose up --build
-```
-ou
 ```bash
 wsl bash start.sh
 python see_data.py
 python etl_process.py
 python main.py
 ```
+ou
+use o Docker Compose:
 
-
+```bash
+docker compose up --build
+```
 
 ---
 
