@@ -1,0 +1,57 @@
+Alguém insatisfeito com os serviços de sua operadora de telecomunicações decidiu comparar os Índices de Desempenho no Atendimento (IDA) 
+dos grupos econômicos que atuam no Brasil. Para isso, ele viu que era necessário compilar os dados disponíveis no portal de Dados Abertos
+para os seguintes serviços: Telefonia Celular (Serviço Móvel Pessoal – SMP), Telefonia Fixa Local (Serviço Telefônico Fixo Comutado – STFC),
+Banda Larga Fixa (Serviço de Comunicação Multimídia – SCM).
+
+Após pesquisar um pouco, ele descobriu que o ideal seria ter um Data Mart (modelo estrela) para esses dados, onde poderia consultar a informação 
+de forma rápida, aplicando os filtros que ele.
+
+Por ser impaciente, ele gostaria que, a partir do Data Mart, lhe fosse criada uma view com a taxa de variação para o valor médio da “Taxa de Respondidas 
+em 5 dias Úteis”, definida como ((IDA do mês atual – IDA do mês anterior) / IDA do mês anterior) * 100, e que fosse calculada a diferença
+entre a taxa de variação média e a taxa individual de cada grupo econômico (com os grupos econômicos pivotados nas colunas), como por exemplo:
+
+Mes	|	Taxa de Variação	|	Média	|	ALGAR	|	CLARO
+2015-01	|	10,1	|	1,1	|	-2,5
+2015-02	|	13,2	|	-1,5	|	0,2
+
+Tasks:
+Montar o Data Mart no PostgreSQL.
+Extrair e carregar as informações do portal utilizando Python.
+Criar a view.
+Entregar tudo em container utilzando o Docker Compose.
+Disponibilizar via em repositório git de sua preferência.
+
+Utilize as seguintes images:
+· postgres:17.5-bookworm
+· python:3.11.12-bookworm
+
+Fonte de dados: Índice de Desempenho no Atendimento < https://dados.gov.br/dados/conjuntos-dados/indice-desempenho-atendimento >
+
+Objetos de avaliação:
+· Só serão considerados para avaliação os projetos que rodarem no docker compose (docker compose up).
+· Quanto ao código em SQL, serão avaliados a organização, clareza, documentação (procure usar COMMENT ON).
+· Quanto ao código em Python, serão avaliados a organização, clareza, documentação (procure usar pydoc) e OOP.
+
+
+beanalytic
+│
+├── docker-compose.yml feito
+├── dockerfile feito
+├── README.md pendente
+│
+├── postgres/
+│   ├──views.sql feito
+│   └── init.sql feito
+│
+├── main.py feito
+├── see_data.py feito
+├── etl_process.py feito # cria o df_final
+├── load.py  feito
+├── config.py  feito
+│
+├── data.sqlite  pendente  # Armazenar CSV temporários
+│
+└── requirements.txt  feito
+
+
+SELECT * FROM vw_variacao_ida;
